@@ -1,40 +1,26 @@
 //Dart for Flutter
-// 4.8강 inheritance
-// 1. 매개변수를 받는 constructor(생성자)가 있는 class
-class Human {
-  final String name;
-  Human(this.name); //constrcutor
-  void sayHellow() {
-    print("Hi I'm $name");
+// 4.9강 MixIn
+// 1. with라는 키워드를 사용
+// 2. 특정 class의 properties들을 사용하는 방법임
+// 3. MixIn의 조건은 생성자가 없는 class다
+// 4. 상속(extends 키워드 사용)과 비교된다
+class Strong {
+  void becomeStrong(String inteli) {
+    print("i'm Strong and $inteli");
   }
 }
 
-enum TeamColor { red, blue }
+class Smart {
+  final String inteligent = "intel";
+}
 
-// 2. 그 class를 상속받은 class
-// Human class의 constructor를 초기화 해야 한다
-class Player extends Human {
-  final TeamColor teamColor;
-
-  // 3. Player constructor를 통해 상위 class의 constructor를 초기화 하도록 설계
-  Player({
-    required this.teamColor,
-    required String name, // 3_1. 어디선가 Player생성자 선언하면 name이 여기오고
-  }) : super(name); // : super를 써서 name값을 상위class constructor 매개변수에 넘김
-
-  // @override 키워드 사용시 super class의 sayHellow()함수명을 사용하는데
-  // 지금 여기서 선언한걸로 대체 한다는 말임
-  @override
-  void sayHellow() {
-    super.sayHellow(); //super를 써서 상위 class의 method를 출력
-    print("and my teamColor is $teamColor");
-  }
+//with로 Mixin
+class human with Smart, Strong {
+  human();
 }
 
 void main() {
-  var player = Player(
-    teamColor: TeamColor.blue,
-    name: 'lions',
-  );
-  player.sayHellow();
+  // main함수에서 MixIn한 클래스를 선언하고 사용했다
+  var human1 = human();
+  human1.becomeStrong(human1.inteligent);
 }
