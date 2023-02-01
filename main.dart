@@ -34,7 +34,7 @@ class Player extends Human {
 void main() {
   var player = Player(
     teamColor: TeamColor.blue,
-    name: 'lion',
+    name: 'lions',
   );
-  player.sayHello();
+  player.sayHellow();
 }
