@@ -22,7 +22,10 @@ class Player extends Human {
     required String name, // 3_1. 어디선가 Player생성자 선언하면 name이 여기오고
   }) : super(name); // : super를 써서 name값을 상위class constructor 매개변수에 넘김
 
-  void sayHello() {
+  // @override 키워드 사용시 super class의 sayHellow()함수명을 사용하는데
+  // 지금 여기서 선언한걸로 대체 한다는 말임
+  @override
+  void sayHellow() {
     super.sayHellow(); //super를 써서 상위 class의 method를 출력
     print("and my teamColor is $teamColor");
   }
